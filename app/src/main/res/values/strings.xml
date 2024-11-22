@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">AppTest</string>
-    <string name="title">Login</string>
-    <string name="email">Entrer votre adresse email</string>
+    <string name="app_name">Re7</string>
+    <string name="title">S\'identifier</string>
+    <string name="email">Entrer votre adresse e-mail</string>
     <string name="password">Entrer votre mot de passe</string>
     <string name="connect">Se connecter</string>
     <string name="signUp">Créer un compte</string>
 
     <!--create-->
 
-    <string name="titleReg">Register</string>
+    <string name="titleReg">Créer un compte</string>
     <string name="nameReg">Nom et prénom</string>
     <string name="emailReg">Adresse email</string>
     <string name="passwordReg">Mot de passe</string>
@@ -16,5 +16,13 @@
     <string name="sign_in">Déjà un compte ?</string>
     <string name="cancel">Retour</string>
 
-    <string name="logout">Disconnect</string>
+
+    <!--main-->
+    <string name="logout">Logout</string>
+    <string name="plat"> Plat de résistence</string>
+    <string name="more_info">Voir plus</string>
+    <string name="entree">Entrée chaud/froid</string>
+    <string name="dessert">Dessert sucré/salé</string>
+    <string name="snack">Gouter sucré/salé</string>
+
 </resources>
