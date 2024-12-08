@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import ma.ismagi.ci2.apptest.R;
 
-public class registerFragment extends AppCompatActivity {
+public class registerActivity extends AppCompatActivity {
 
     TextInputEditText  editTextEmail, editTextPassword;
     Button buttonReg;
@@ -34,7 +34,7 @@ public class registerFragment extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainFragment.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -54,7 +54,7 @@ public class registerFragment extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), loginFragment.class);
+                Intent intent = new Intent(getApplicationContext(), loginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -70,11 +70,11 @@ public class registerFragment extends AppCompatActivity {
                 password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(registerFragment.this, "Enter your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registerActivity.this, "Enter your email", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    Toast.makeText(registerFragment.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registerActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -85,10 +85,10 @@ public class registerFragment extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()){
 
-                                    Toast.makeText(registerFragment.this, "Account created", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(registerActivity.this, "Account created", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
-                                    Toast.makeText(registerFragment.this, "Authentification failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(registerActivity.this, "Authentification failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

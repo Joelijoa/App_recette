@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.kotlin.android)
 
 }
@@ -12,6 +11,7 @@ android {
     defaultConfig {
         applicationId = "ma.ismagi.ci2.apptest"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -40,7 +40,7 @@ android {
 dependencies {
 
     implementation(libs.appcompat)
-    implementation(libs.material)
+    implementation (libs.material.v190)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
@@ -49,12 +49,13 @@ dependencies {
     implementation (libs.firebase.firestore)
     implementation(libs.litert.support.api)
     testImplementation(libs.junit)
-    implementation (libs.github.glide)
-    annotationProcessor (libs.compiler)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation (libs.play.services.auth)
-    implementation (libs.play.services.base)
     implementation(libs.firebase.storage)
+    implementation (libs.firebase.core)
+    implementation (libs.glide.v4151)
+    annotationProcessor (libs.compiler.v4151)
+
+
 }
 apply(plugin = "com.google.gms.google-services")

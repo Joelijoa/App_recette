@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <application
         android:allowBackup="true"
@@ -11,27 +14,20 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTest"
         tools:targetApi="31">
         <activity
-            android:name=".ui.DetailsFragment"
+            android:name=".ui.FooterActivity"
             android:exported="false" />
         <activity
-            android:name=".SnackActivity"
+            android:name=".ui.HeaderActivity"
             android:exported="false" />
         <activity
-            android:name=".DessertActivity"
+            android:name=".ui.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".EntreeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainDishActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.loginFragment"
+            android:name=".ui.loginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,10 +36,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.registerFragment"
+            android:name=".ui.registerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainFragment"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

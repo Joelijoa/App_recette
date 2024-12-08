@@ -20,4 +20,7 @@
     <string name="desc_list">Description of recipe</string>
     <string name="nb_pers">Number of person</string>
     <string name="time_cook">Time for cooking</string>
+    <string name="favorite">Favorite</string>
+    <string name="add">Add</string>
+    <string name="profile">Profile</string>
 </resources>

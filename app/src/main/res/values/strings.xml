@@ -25,4 +25,9 @@
     <string name="desc_list">Description de la recette</string>
     <string name="nb_pers">Nombre de personne</string>
     <string name="time_cook">Temps de cuisson</string>
+
+    <!-- footer-->
+    <string name="favorite">Favoris</string>
+    <string name="add">Ajouter</string>
+    <string name="profile">Profile</string>
 </resources>

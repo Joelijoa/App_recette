@@ -19,7 +19,7 @@ import java.util.Objects;
 
 import ma.ismagi.ci2.apptest.R;
 
-public class loginFragment extends AppCompatActivity {
+public class loginActivity extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword;
     Button buttonLog;
     FirebaseAuth mAuth;
@@ -32,11 +32,12 @@ public class loginFragment extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance(); // Initialisation de mAuth
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), MainFragment.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
         }
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,18 @@ public class loginFragment extends AppCompatActivity {
         textView = findViewById(R.id.btn_SignUp);
 
         textView.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), registerFragment.class);
+            Intent intent = new Intent(getApplicationContext(), registerActivity.class);
             startActivity(intent);
             finish();
         });
 
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            // Si l'utilisateur est déjà connecté, rediriger vers MainFragment
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
         buttonLog.setOnClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
             buttonLog.setEnabled(false);
@@ -66,13 +74,13 @@ public class loginFragment extends AppCompatActivity {
             if (TextUtils.isEmpty(email)) {
                 progressBar.setVisibility(View.GONE);
                 buttonLog.setEnabled(true);
-                Toast.makeText(loginFragment.this, "Enter your email", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loginActivity.this, "Enter your email", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (TextUtils.isEmpty(password)) {
                 progressBar.setVisibility(View.GONE);
                 buttonLog.setEnabled(true);
-                Toast.makeText(loginFragment.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loginActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -81,13 +89,13 @@ public class loginFragment extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                         buttonLog.setEnabled(true);
                         if (task.isSuccessful()) {
-                            Toast.makeText(loginFragment.this, "Login success", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MainFragment.class);
+                            Toast.makeText(loginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Authentication failed";
-                            Toast.makeText(loginFragment.this, errorMessage, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                         }
                     });
         });

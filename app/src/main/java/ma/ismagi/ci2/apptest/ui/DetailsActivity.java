@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import ma.ismagi.ci2.apptest.R;
 
-public class DetailsFragment extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

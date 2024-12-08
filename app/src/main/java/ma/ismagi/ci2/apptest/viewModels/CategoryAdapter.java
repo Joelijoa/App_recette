@@ -17,7 +17,7 @@ import java.util.List;
 
 import ma.ismagi.ci2.apptest.R;
 import ma.ismagi.ci2.apptest.models.Category;
-import ma.ismagi.ci2.apptest.ui.DetailsFragment;
+import ma.ismagi.ci2.apptest.ui.DetailsActivity;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
@@ -55,7 +55,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         }
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetailsFragment.class);
+            Intent intent = new Intent(context, DetailsActivity.class);
             intent.putExtra("categoryName", category.getName());
             intent.putExtra("categoryDesc", category.getDesc());
             intent.putExtra("categoryImg", category.getImg());
