@@ -1,4 +1,4 @@
-package ma.ismagi.ci2.apptest;
+package ma.ismagi.ci2.apptest.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,9 +19,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class login extends AppCompatActivity {
-    TextInputEditText editTextEmail, editTextPassword;
-    Button buttonLog;
+import ma.ismagi.ci2.apptest.R;
+
+public class registerFragment extends AppCompatActivity {
+
+    TextInputEditText  editTextEmail, editTextPassword;
+    Button buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textView;
@@ -35,7 +34,7 @@ public class login extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainFragment.class);
             startActivity(intent);
             finish();
         }
@@ -44,24 +43,25 @@ public class login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
 
-        editTextEmail = findViewById(R.id.etEmail);
-        editTextPassword = findViewById(R.id.etPassword);
-        buttonLog = findViewById(R.id.btn_connect);
+        editTextEmail = findViewById(R.id.etEmailReg);
+        editTextPassword = findViewById(R.id.etPasswordReg);
+        buttonReg = findViewById(R.id.btn_create);
         progressBar = findViewById(R.id.progressBar);
-        textView = findViewById(R.id.btn_SignUp);
+        textView = findViewById(R.id.btnSignIn);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), register.class);
+                Intent intent = new Intent(getApplicationContext(), loginFragment.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        buttonLog.setOnClickListener(new View.OnClickListener() {
+        //btn create ana account
+        buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -70,32 +70,30 @@ public class login extends AppCompatActivity {
                 password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(login.this, "Enter your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registerFragment.this, "Enter your email", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    Toast.makeText(login.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registerFragment.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()){
-                                    Toast.makeText(login.this, "Login success", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
 
+                                    Toast.makeText(registerFragment.this, "Account created", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
-                                    Toast.makeText(login.this, "Authentification failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(registerFragment.this, "Authentification failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
             }
-
         });
+
     }
 }

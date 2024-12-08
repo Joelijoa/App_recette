@@ -6,251 +6,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainFragment">
 
     <androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/toolbar_background"
-    app:titleTextColor="@color/white"
-    android:elevation="8dp"
-    app:layout_constraintTop_toTopOf="parent"
-    >
-
-    <!-- Titre centré avec texte amélioré -->
-    <TextView
-        android:id="@+id/user_details"
-        android:layout_width="wrap_content"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenue, utilisateur !"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="2dp"
-        android:shadowColor="#000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:background="@drawable/toolbar_background"
+        app:titleTextColor="@color/white"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Bouton de déconnexion avec icône et effet moderne -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/cardview_shadow_start_color"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/user_details"
-        app:icon="@drawable/logout"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:cornerRadius="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/user_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bienvenue, utilisateur !"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="2dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/user_details"
+            app:icon="@drawable/logout"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:cornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.appcompat.widget.Toolbar>
 
-
-
-    <!-- bloc -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_main_dish"
-        android:layout_width="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/card_starter"
-        app:layout_constraintWidth_percent="0.45"
-        app:layout_constraintHeight_percent="0.4">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:src="@drawable/plat"
-                android:contentDescription="@string/plat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/plat"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <Button
-                android:id="@+id/btn_Plat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/more_info"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/white" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_starter"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/card_main_dish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.45"
-        app:layout_constraintHeight_percent="0.4">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:src="@drawable/entree"
-                android:contentDescription="@string/entree" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/entree"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <Button
-                android:id="@+id/btn_Entre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/more_info"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/white" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_dessert"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@+id/card_main_dish"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/card_snack"
-        app:layout_constraintWidth_percent="0.45"
-        app:layout_constraintHeight_percent="0.4">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:src="@drawable/dessert"
-                android:contentDescription="Dessert" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dessert"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <Button
-                android:id="@+id/btn_Dessert"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/more_info"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/white" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_snack"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@+id/card_starter"
-        app:layout_constraintStart_toEndOf="@+id/card_dessert"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.45"
-        app:layout_constraintHeight_percent="0.4">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:src="@drawable/snack"
-                android:contentDescription="@string/snack" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/snack"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <Button
-                android:id="@+id/btn_snack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/more_info"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/white" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

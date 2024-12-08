@@ -19,10 +19,10 @@
 
     <!--main-->
     <string name="logout">Logout</string>
-    <string name="plat"> Plat de résistence</string>
-    <string name="more_info">Voir plus</string>
-    <string name="entree">Entrée chaud/froid</string>
-    <string name="dessert">Dessert sucré/salé</string>
-    <string name="snack">Gouter sucré/salé</string>
-
+    <string name="title_of_category"> Titre</string>
+    <string name="text_description_of_category">Description</string>
+    <string name="name_list">Nom de la recette</string>
+    <string name="desc_list">Description de la recette</string>
+    <string name="nb_pers">Nombre de personne</string>
+    <string name="time_cook">Temps de cuisson</string>
 </resources>
